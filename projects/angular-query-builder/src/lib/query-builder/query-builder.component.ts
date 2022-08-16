@@ -315,11 +315,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   getFields(entity: string): Field[] {
     if (this.entities.length && entity) {
       return this.fields.filter((field) => {
-        if(field.entity) {
-          return field && field.entity === entity;
-        } else {
-          return field && field.entities && field.entities.indexOf(entity) > -1; 
-        }
+        return field && field.entities && field.entities.indexOf(entity) > -1; 
       });
     } else {
       return this.fields;
@@ -369,7 +365,7 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
       return this.getDefaultValue(entity.defaultField);
     } else {
       const entityFields = this.fields.filter((field) => {
-        return field && field.entity === entity.value;
+        return field && field.entities && entity.value && field.entities.indexOf(entity.value) > -1; 
       });
       if (entityFields && entityFields.length) {
         return entityFields[0];
@@ -410,12 +406,20 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
         field: field.value as string,
         operator: this.getDefaultOperator(field) as string,
         value: this.getDefaultValue(field.defaultValue),
-        entity: field.entity
+        entity: this.getDefaultEntityValue(field.entities)
       }]);
     }
 
     this.handleTouched();
     this.handleDataChange();
+  }
+
+  getDefaultEntityValue(entities? : string[]){
+    if(entities && entities.length > 0){
+      return entities[0];
+    }
+    return undefined;
+
   }
 
   removeRule(rule: Rule, parent?: RuleSet): void {

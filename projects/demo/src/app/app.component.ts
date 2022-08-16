@@ -237,27 +237,27 @@ export class AppComponent {
       nonphysical: { name: 'Nonphysical Attributes' }
     },
     fields: {
-      age: { name: 'Age', type: 'number', entity: 'physical' },
+      age: { name: 'Age', type: 'number', entities: ['physical'] },
       gender: {
         name: 'Gender',
-        entity: 'physical',
+        entities:['physical'],
         type: 'category',
         options: [
           { name: 'Male', value: 'm' },
           { name: 'Female', value: 'f' }
         ]
       },
-      name: { name: 'Name', type: 'string', entity: 'nonphysical' },
-      notes: { name: 'Notes', type: 'textarea', operators: ['=', '!='], entity: 'nonphysical' },
-      educated: { name: 'College Degree?', type: 'boolean', entity: 'nonphysical' },
+      name: { name: 'Name', type: 'string', entities:['nonphysical','physical']  },
+      notes: { name: 'Notes', type: 'textarea', operators: ['=', '!='], entities:['nonphysical']  },
+      educated: { name: 'College Degree?', type: 'boolean', entities:['nonphysical']  },
       birthday: {
         name: 'Birthday', type: 'date', operators: ['=', '<=', '>'],
-        defaultValue: (() => new Date()), entity: 'nonphysical'
+        defaultValue: (() => new Date()), entities:['nonphysical'] 
       },
-      school: { name: 'School', type: 'string', nullable: true, entity: 'nonphysical' },
+      school: { name: 'School', type: 'string', nullable: true, entities:['nonphysical']  },
       occupation: {
         name: 'Occupation',
-        entity: 'nonphysical',
+        entities:['nonphysical'] ,
         type: 'category',
         options: [
           { name: 'Student', value: 'student' },

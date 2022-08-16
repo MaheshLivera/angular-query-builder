@@ -32,7 +32,6 @@ export interface Field {
   operators?: string[];
   defaultValue?: any;
   defaultOperator?: any;
-  entity?: string;
   entities?: string[];
   validator?: (rule: Rule, parent: RuleSet) => any | null;
 }
