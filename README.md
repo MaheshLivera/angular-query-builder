@@ -7,7 +7,7 @@ which in turn is a fork from https://github.com/designermanjeets/Angular-QueryBu
 
 # Examples
 
-npm install angular-query-builder
+npm install mod-angular-query-builder
 
 ## Basic Usage
 

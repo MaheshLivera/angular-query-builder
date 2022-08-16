@@ -1,5 +1,5 @@
 {
-  "name": "angular-query-builder",
+  "name": "mod-angular-query-builder",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~13.3.11",
     "@angular/cdk": "^12.2.12",

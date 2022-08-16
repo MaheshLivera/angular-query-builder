@@ -315,7 +315,11 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
   getFields(entity: string): Field[] {
     if (this.entities.length && entity) {
       return this.fields.filter((field) => {
-        return field && field.entity === entity;
+        if(field.entity) {
+          return field && field.entity === entity;
+        } else {
+          return field && field.entities && field.entities.indexOf(entity) > -1; 
+        }
       });
     } else {
       return this.fields;
