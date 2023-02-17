@@ -21,7 +21,7 @@
         <i [ngClass]="getClassNames('addIcon')"></i> Rule
       </button>
       <button type="button" (click)="addRuleSet()" [ngClass]="getClassNames('button')" *ngIf="allowRuleset" [disabled]=disabled>
-        <i [ngClass]="getClassNames('addIcon')"></i> Ruleset
+        <i [ngClass]="getClassNames('addIcon')"></i> Group
       </button>
       <ng-container *ngIf="!!parentValue && allowRuleset">
         <button type="button" (click)="removeRuleSet()" [ngClass]="getClassNames('button', 'removeButton')" [disabled]=disabled>
@@ -40,12 +40,12 @@
       <div [ngClass]="getClassNames('switchControl')">
         <input type="radio" [ngClass]="getClassNames('switchRadio')" [(ngModel)]="data.condition" [disabled]=disabled
           value="and" #andOption />
-        <label (click)="changeCondition(andOption.value)" [ngClass]="getClassNames('switchLabel')">AND</label>
+        <label (click)="changeCondition(andOption.value)" [ngClass]="getClassNames('switchLabel')">ALL OF</label>
       </div>
       <div [ngClass]="getClassNames('switchControl')">
         <input type="radio" [ngClass]="getClassNames('switchRadio')" [(ngModel)]="data.condition" [disabled]=disabled
           value="or" #orOption />
-        <label (click)="changeCondition(orOption.value)" [ngClass]="getClassNames('switchLabel')">OR</label>
+        <label (click)="changeCondition(orOption.value)" [ngClass]="getClassNames('switchLabel')">ANY OF</label>
       </div>
     </div>
   </ng-template>
