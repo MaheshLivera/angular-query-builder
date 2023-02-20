@@ -17,14 +17,17 @@
 
   <ng-template #defaultButtonGroup>
     <div [ngClass]="getClassNames('buttonGroup', 'rightAlign')">
+      <button type="button" (click)="addToRuleSet()" [ngClass]="getClassNames('button')" [disabled]=disabled>
+        <i [ngClass]="getClassNames('addIcon')"></i> Make Group
+      </button>
       <button type="button" (click)="addRule()" [ngClass]="getClassNames('button')" [disabled]=disabled>
         <i [ngClass]="getClassNames('addIcon')"></i> Rule
       </button>
       <button type="button" (click)="addRuleSet()" [ngClass]="getClassNames('button')" *ngIf="allowRuleset" [disabled]=disabled>
         <i [ngClass]="getClassNames('addIcon')"></i> Group
       </button>
-      <ng-container *ngIf="!!parentValue && allowRuleset">
-        <button type="button" (click)="removeRuleSet()" [ngClass]="getClassNames('button', 'removeButton')" [disabled]=disabled>
+      <ng-container *ngIf="parentValue.rules.length !== 0 && allowRuleset">
+        <button type="button" (click)="removeFromRuleSet()" [ngClass]="getClassNames('button', 'removeButton')" [disabled]=disabled>
           <i [ngClass]="getClassNames('removeIcon')"></i>
         </button>
       </ng-container>

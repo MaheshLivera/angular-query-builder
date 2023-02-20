@@ -443,6 +443,50 @@ export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, V
     this.handleDataChange();
   }
 
+  addToRuleSet(ruleset?: RuleSet, parent?: RuleSet) : void {
+    if (this.disabled) {
+      return;
+    }
+
+    ruleset = ruleset || this.data;
+    parent = parent || this.parentValue;
+
+    if(parent.rules.length === 0) {
+      this.data = { condition: 'and', rules: [ruleset] };
+
+    } else {
+      if (this.config.removeRuleSet) {
+        this.config.removeRuleSet(ruleset, parent);
+      } else {
+        parent.rules = parent.rules.filter((r) => r !== ruleset);
+      }
+      if (this.config.addRuleSet) {
+        this.config.addRuleSet(parent);
+      } else {
+        parent.rules = parent.rules.concat([{ condition: 'and', rules: [ruleset] }]);
+      }
+    }    
+    this.handleTouched();
+    this.handleDataChange();
+  }
+
+  removeFromRuleSet(ruleset?: RuleSet, parent?: RuleSet) : void {
+    if (this.disabled) {
+      return;
+    }
+
+    ruleset = ruleset || this.data;
+    parent = parent || this.parentValue;
+    if (this.config.removeRuleSet) {
+      this.config.removeRuleSet(ruleset, parent);
+    } else {
+      parent.rules = parent.rules.filter((r) => r !== ruleset);
+    }
+    parent.rules = parent.rules.concat(ruleset.rules);
+    this.handleTouched();
+    this.handleDataChange();
+  }
+
   addRuleSet(parent?: RuleSet): void {
     if (this.disabled) {
       return;
