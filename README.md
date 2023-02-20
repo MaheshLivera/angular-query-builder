@@ -282,7 +282,8 @@ For replacing the default button group for Add, Add Ruleset, Remove Ruleset butt
 |`$implicit`|`RuleSet`|Current rule set object which contain a list of child rules|
 |`addRule`|`() => void`|Function to handle adding a new rule|
 |`addRuleSet`|`() => void`|Function to handle adding a new rule set|
-|`removeRuleSet`|`() => void`|Function to handle removing the current rule set|
+|`addToRuleSet`|`() => void`|Function to handle to combine rules into a rule set|
+|`removeFromRuleSet`|`() => void`|Function to handle removing the rule set grouping and add rules to the parent|
 
 #### `queryRemoveButton`
 
