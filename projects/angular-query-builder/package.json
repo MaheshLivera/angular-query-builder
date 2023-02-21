@@ -1,6 +1,6 @@
 {
   "name": "mod-angular-query-builder",
-  "version": "1.0.0",
+  "version": "2.1.1",
   "description": "Port of ngx-angular-query-builder from https://github.com/raysuelzer/ngx-angular-query-builder in order to support angular 13+",
   "license": "MIT",
   "peerDependencies": {

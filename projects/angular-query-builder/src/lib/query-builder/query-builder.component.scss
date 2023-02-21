@@ -45,9 +45,6 @@
     width: 31px;
   }
 
-  .q-switch-group {
-    margin-bottom: 12px;
-  }
   .q-switch-group, .q-button-group {
     font-family: "Lucida Grande", Tahoma, Verdana, sans-serif;
     overflow: hidden;
@@ -112,7 +109,6 @@
     float: left;
     margin-bottom: 0;
     font-size: 14px;
-    line-height: 30px;
     font-weight: normal;
     text-align: center;
     text-shadow: none;
@@ -232,7 +228,7 @@
 
   .q-row {
     //padding: 6px 8px;
-    margin-top: 0px;
+    margin-top: 5px;
     padding-left: 0px;
     border: 1px solid transparent;
     padding-right: 0px;
@@ -242,14 +238,15 @@
     position: relative;
 
     &::before {
-      top: -13px;
+      top: -6px;
       border-width: 0 0 2px 2px;
+      height: 25.5px;
     }
 
     &::after {
       border-width: 0 0 0 2px;
-      //top: 50%;
-      top : 21px;
+      height: calc(100% - 15px);
+      top : 19px;
     }
 
     &::before, &::after {
@@ -261,15 +258,6 @@
       position: absolute;
     }
     
-    &::before {
-      height: 32.5px;
-    }
-
-    &::after {
-      //height: calc(50% + 6px);
-      height: calc(100% - 32px);
-    }
-
     &:last-child::after {
       content: none;
     }
